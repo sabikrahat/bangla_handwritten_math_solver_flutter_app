@@ -1,0 +1,18 @@
+{
+  "appTitle": "EWU Job Portal",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "language": "English",
+  "@language": {
+    "description": "The current language of the application"
+  },
+  "settings": "Settings",
+  "weAreUnderMaintenance": "We are Under Maintenance",
+  "weWillBeBackSoon": "We will be back soon!",
+  "contactWithAdmin": "Contact with Admin",
+  "chooseAnOption": "Choose an option",
+  "captureImageWithCamera": "Capture image with camera",
+  "selectImageFromGallery": "Select image from gallery",
+  "cancel": "Cancel"
+}
