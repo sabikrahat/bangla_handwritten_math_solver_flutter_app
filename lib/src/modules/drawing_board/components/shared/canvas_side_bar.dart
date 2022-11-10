@@ -1,24 +1,18 @@
 import 'dart:async';
-import 'dart:io';
-import 'dart:ui' as ui;
 
 import 'package:bangla_handwritten_math_solver_flutter_app/src/configs/responsive_config.dart';
 import 'package:bangla_handwritten_math_solver_flutter_app/src/modules/drawing_board/providers/canvas_pd.dart';
 import 'package:bangla_handwritten_math_solver_flutter_app/src/shared/divider/k_divider.dart';
 import 'package:bangla_handwritten_math_solver_flutter_app/src/shared/footer_widget/footer_widget.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:file_saver/file_saver.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Image;
-import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../helpers/constants/constants.dart';
-import '../enums/drawing_enums.dart';
+import '../../../../helpers/constants/constants.dart';
+import '../../enums/drawing_enums.dart';
 import 'color_changer.dart';
 import 'icon_box.dart';
 
@@ -153,46 +147,39 @@ class CanvasSideBar extends ConsumerWidget {
           const SizedBox(height: 10),
           Wrap(
             children: [
+              // TextButton(
+              //   style: ButtonStyle(
+              //     foregroundColor: MaterialStateProperty.all(
+              //         canUndo(ref) ? kSecondaryColor : kFadeTextColor),
+              //   ),
+              //   onPressed: canUndo(ref) ? () => undo(ref) : null,
+              //   child: const Text(
+              //     'Undo',
+              //     style: TextStyle(fontWeight: FontWeight.bold),
+              //   ),
+              // ),
+              // TextButton(
+              //   style: ButtonStyle(
+              //     foregroundColor: MaterialStateProperty.all(
+              //         ref.watch(redoSketchesProvider).isNotEmpty
+              //             ? kSecondaryColor
+              //             : kFadeTextColor),
+              //   ),
+              //   onPressed: ref.watch(redoSketchesProvider).isNotEmpty
+              //       ? () => redo(ref)
+              //       : null,
+              //   child: const Text(
+              //     'Redo',
+              //     style: TextStyle(fontWeight: FontWeight.bold),
+              //   ),
+              // ),
               TextButton(
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all(
-                      ref.watch(allSketchesProvider).isNotEmpty
-                          ? kSecondaryColor
-                          : kFadeTextColor),
+                    canClearCanvas(ref) ? kSecondaryColor : kFadeTextColor,
+                  ),
                 ),
-                onPressed: ref.watch(allSketchesProvider).isNotEmpty
-                    ? () => undo(ref)
-                    : null,
-                child: const Text(
-                  'Undo',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-              TextButton(
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(
-                      ref.watch(redoSketchesProvider).isNotEmpty
-                          ? kSecondaryColor
-                          : kFadeTextColor),
-                ),
-                onPressed: ref.watch(redoSketchesProvider).isNotEmpty
-                    ? () => redo(ref)
-                    : null,
-                child: const Text(
-                  'Redo',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-              TextButton(
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(
-                      ref.watch(allSketchesProvider).isNotEmpty
-                          ? kSecondaryColor
-                          : kFadeTextColor),
-                ),
-                onPressed: ref.watch(allSketchesProvider).isNotEmpty
-                    ? () => clearCanvas(ref)
-                    : null,
+                onPressed: canClearCanvas(ref) ? () => clearCanvas(ref) : null,
                 child: const Text(
                   'Clear',
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -210,6 +197,7 @@ class CanvasSideBar extends ConsumerWidget {
               ),
             ],
           ),
+          const SizedBox(height: 50),
           const KFooterWidget(),
         ],
       ),
@@ -228,5 +216,4 @@ class CanvasSideBar extends ConsumerWidget {
       }
     }
   }
-
 }

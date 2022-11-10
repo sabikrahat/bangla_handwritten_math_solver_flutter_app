@@ -3,8 +3,8 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../helpers/constants/constants.dart';
-import '../providers/canvas_pd.dart';
+import '../../../../helpers/constants/constants.dart';
+import '../../providers/canvas_pd.dart';
 
 class ColorChanger extends ConsumerWidget {
   const ColorChanger({

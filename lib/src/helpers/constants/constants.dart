@@ -5,7 +5,6 @@ import 'package:flutter/material.dart'
         Color,
         Colors,
         CrossAxisAlignment,
-        GlobalKey,
         Gradient,
         LinearGradient,
         MainAxisAlignment,
@@ -77,8 +76,8 @@ final allColors = [
 ];
 
 final defaultBorderRadius = BorderRadius.circular(6.0);
-
-final canvasGlobalKey = GlobalKey();
+const equCanvasKey = 'equCanvas';
+const ansCanvasKey = 'ansCanvas';
 
 const String kGithubRepo =
     'https://github.com/sabikrahat/bangla_handwritten_math_solver_flutter_app';
