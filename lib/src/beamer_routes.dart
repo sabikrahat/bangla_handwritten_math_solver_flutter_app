@@ -1,3 +1,4 @@
+import 'package:bangla_handwritten_math_solver_flutter_app/src/modules/drawing_board/drawing_board.dart';
 import 'package:beamer/beamer.dart'
     show
         BeamGuard,
@@ -8,7 +9,7 @@ import 'package:beamer/beamer.dart'
 import 'package:flutter/widgets.dart' show ValueKey;
 
 import 'app_routes.dart' show AppRoutes;
-import 'helpers/constants/constants.dart' show appName, isMaintenanceBreak;
+import 'helpers/constants/constants.dart' show appTitle, isMaintenanceBreak;
 import 'modules/about_us/about_us.dart' show AboutUsPage;
 import 'modules/home/home.dart' show Home;
 import 'modules/settings/settings_page.dart' show SettingsPage;
@@ -17,7 +18,7 @@ import 'shared/page_not_found/page_not_found.dart' show KPageNotFound;
 final routerDelegate = BeamerDelegate(
   initialPath: AppRoutes.homeRoute,
   notFoundPage: const BeamPage(
-    title: 'Page not found - $appName',
+    title: 'Page not found',
     child: KPageNotFound(error: '404 - Page not found!'),
   ),
   locationBuilder: RoutesLocationBuilder(
@@ -25,7 +26,7 @@ final routerDelegate = BeamerDelegate(
       AppRoutes.homeRoute: (_, __, ___) {
         return const BeamPage(
           key: ValueKey(AppRoutes.homeRoute),
-          title: appName,
+          title: appTitle,
           type: BeamPageType.slideRightTransition,
           child: Home(),
         );
@@ -33,7 +34,7 @@ final routerDelegate = BeamerDelegate(
       AppRoutes.settingsRoute: (_, __, ___) {
         return const BeamPage(
           key: ValueKey(AppRoutes.settingsRoute),
-          title: '$appName - Settings',
+          title: 'Settings',
           type: BeamPageType.slideRightTransition,
           child: SettingsPage(),
         );
@@ -41,9 +42,17 @@ final routerDelegate = BeamerDelegate(
       AppRoutes.aboutUsRoute: (_, __, ___) {
         return const BeamPage(
           key: ValueKey(AppRoutes.settingsRoute),
-          title: '$appName - About us',
+          title: 'About us',
           type: BeamPageType.slideRightTransition,
           child: AboutUsPage(),
+        );
+      },
+      AppRoutes.drawingBoardRoute: (_, __, ___) {
+        return const BeamPage(
+          key: ValueKey(AppRoutes.drawingBoardRoute),
+          title: 'Drawing Board',
+          type: BeamPageType.slideRightTransition,
+          child: DrawingBoard(),
         );
       },
     },

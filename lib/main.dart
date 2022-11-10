@@ -23,3 +23,4 @@ Future<void> _init() async {
   if (!kIsWeb) WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(uiConfig);
 }
+

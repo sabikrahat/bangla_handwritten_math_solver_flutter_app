@@ -36,7 +36,7 @@ class KFooterWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Developed by ',
+              'Made with 💙 by ',
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
@@ -45,11 +45,11 @@ class KFooterWidget extends StatelessWidget {
             ),
             InkWell(
               onTap: () async => await canLaunchUrl(
-                      Uri.parse('https://algoramming.github.io/'))
-                  ? await launchUrl(Uri.parse('https://algoramming.github.io/'))
+                      Uri.parse('https://sabikrahat.github.io/'))
+                  ? await launchUrl(Uri.parse('https://sabikrahat.github.io/'))
                   : throw 'Could not launch the url',
               child: Text(
-                'Algoramming',
+                'Sabik Rahat',
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
@@ -57,28 +57,6 @@ class KFooterWidget extends StatelessWidget {
                 ),
               ),
             ),
-            // const Text(
-            //   ' in 💙 with ',
-            //   style: TextStyle(
-            //     fontSize: 13,
-            //     fontWeight: FontWeight.w500,
-            //     color: Colors.black,
-            //   ),
-            // ),
-            // InkWell(
-            //   onTap: () async =>
-            //       await canLaunchUrl(Uri.parse('https://flutter.dev/'))
-            //           ? await launchUrl(Uri.parse('https://flutter.dev/'))
-            //           : throw 'Could not launch the url',
-            //   child: Text(
-            //     'Flutter',
-            //     style: TextStyle(
-            //       fontSize: 13,
-            //       fontWeight: FontWeight.w600,
-            //       color: Colors.blue[700],
-            //     ),
-            //   ),
-            // ),
           ],
         ),
         const SizedBox(height: 20.0),

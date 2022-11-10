@@ -5,6 +5,7 @@ import 'package:flutter/material.dart'
         Color,
         Colors,
         CrossAxisAlignment,
+        GlobalKey,
         Gradient,
         LinearGradient,
         MainAxisAlignment,
@@ -15,10 +16,14 @@ import 'package:intl/intl.dart' show DateFormat, NumberFormat;
 const isMaintenanceBreak = false;
 //
 
-const Color white = Colors.white;
-const Color black = Colors.black;
+const white = Colors.white;
+const black = Colors.black;
 
-Color kPrimaryColor = const Color(0xFF192F59);
+const kPrimaryColor = Color(0xFF192F59);
+const kSecondaryColor = Color.fromARGB(255, 50, 88, 158);
+const kCanvasColor = Color(0xfff2f3f7);
+const kTextColor = Color(0xFF262626);
+const kFadeTextColor = Color.fromARGB(255, 153, 152, 152);
 
 const secondary = Color(0xFFA6A6A6);
 const iconGray = Color(0xFF767676);
@@ -65,7 +70,18 @@ const Gradient defaultGradient = LinearGradient(
   ],
 );
 
+final allColors = [
+  Colors.black,
+  Colors.white,
+  ...Colors.primaries,
+];
+
 final defaultBorderRadius = BorderRadius.circular(6.0);
+
+final canvasGlobalKey = GlobalKey();
+
+const String kGithubRepo =
+    'https://github.com/sabikrahat/bangla_handwritten_math_solver_flutter_app';
 
 MainAxisAlignment mainStart = MainAxisAlignment.start;
 MainAxisAlignment mainCenter = MainAxisAlignment.center;
