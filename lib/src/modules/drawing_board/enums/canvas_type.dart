@@ -1,4 +1,4 @@
-import 'package:bangla_handwritten_math_solver_flutter_app/src/helpers/constants/constants.dart';
+import '../../../helpers/constants/constants.dart';
 
 enum CanvasType { equation, answer }
 

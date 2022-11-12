@@ -96,3 +96,7 @@ CrossAxisAlignment crossStretch = CrossAxisAlignment.stretch;
 
 MainAxisSize mainMax = MainAxisSize.max;
 MainAxisSize mainMin = MainAxisSize.min;
+
+const String baseLink = 'http://127.0.0.1:8000';
+
+const String playStoreUrl = 'https://play.google.com/store/apps/details?id= ';

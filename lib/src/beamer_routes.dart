@@ -1,4 +1,4 @@
-import 'package:bangla_handwritten_math_solver_flutter_app/src/modules/drawing_board/drawing_board.dart';
+import 'modules/drawing_board/drawing_board.dart';
 import 'package:beamer/beamer.dart'
     show
         BeamGuard,

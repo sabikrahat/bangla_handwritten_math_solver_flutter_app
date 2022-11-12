@@ -1,5 +1,5 @@
-import 'package:bangla_handwritten_math_solver_flutter_app/src/modules/drawing_board/components/shared/sketch_painting.dart';
-import 'package:bangla_handwritten_math_solver_flutter_app/src/modules/drawing_board/enums/canvas_type.dart';
+import 'sketch_painting.dart';
+import '../../enums/canvas_type.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

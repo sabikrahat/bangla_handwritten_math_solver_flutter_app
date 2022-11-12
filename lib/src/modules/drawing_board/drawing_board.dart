@@ -1,22 +1,21 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:ui' as ui;
 
-import 'package:bangla_handwritten_math_solver_flutter_app/src/configs/responsive_config.dart';
-import 'package:file_saver/file_saver.dart';
+import '../../configs/responsive_config.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' hide Image;
+import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 import '../../helpers/constants/constants.dart';
+import 'api/get_equation_solve_api.dart';
 import 'components/desktop_widget.dart';
 import 'components/mobile_widget.dart';
 import 'components/shared/canvas_side_bar.dart';
 import 'enums/canvas_type.dart';
 import 'providers/canvas_pd.dart';
-import 'package:universal_html/html.dart' as html;
+import 'dart:convert';
 
 class DrawingBoard extends ConsumerWidget {
   const DrawingBoard({super.key});
@@ -54,20 +53,23 @@ class DrawingBoard extends ConsumerWidget {
 }
 
 Future<void> check(WidgetRef ref) async {
+  EasyLoading.show();
   debugPrint('>>> Checking...');
-  Uint8List? equPngBytes = await getBytes(
-      ref.watch(canvasGlobalKeyProvider(CanvasType.equation.keyValue)));
-  debugPrint('>>> Equation PNG bytes: $equPngBytes');
-  Uint8List? ansPngBytes = await getBytes(
-      ref.watch(canvasGlobalKeyProvider(CanvasType.answer.keyValue)));
-  debugPrint('>>> Answer PNG bytes: $ansPngBytes');
-  if (equPngBytes != null) {
-    await saveFile(equPngBytes, 'bangla-handwritten-equation');
-    debugPrint('>>> Equation PNG file saved');
-  }
-  if (ansPngBytes != null) {
-    await saveFile(ansPngBytes, 'bangla-handwritten-answer');
-    debugPrint('>>> Answer PNG file saved');
+  Uint8List? equPngBytes = await getBytes(ref.watch(canvasGlobalKeyProvider(CanvasType.equation.keyValue)));
+  Uint8List? ansPngBytes = await getBytes(ref.watch(canvasGlobalKeyProvider(CanvasType.answer.keyValue)));
+  // debugPrint('>>> Equation PNG bytes: $equPngBytes');
+  // debugPrint('>>> Answer PNG bytes: $ansPngBytes');
+  
+  if (equPngBytes != null && ansPngBytes != null) {
+    String imgEqu = uint8ListToBase64(equPngBytes);
+    String imgAns = uint8ListToBase64(ansPngBytes);
+    
+    // debugPrint('>>> Equation Base64 bytes: $imgEqu');
+    // debugPrint('>>> Answer Base64 bytes: $imgAns');
+
+    String result = await getEquationSolveApi(imgEqu, imgAns);
+    debugPrint('>>> Result: $result');
+    EasyLoading.showSuccess(result);
   }
 }
 
@@ -80,26 +82,6 @@ Future<Uint8List?> getBytes(GlobalKey key) async {
   return pngBytes;
 }
 
-Future<void> saveFile(Uint8List bytes, String fileName,
-    [String extension = 'png']) async {
-  if (kIsWeb) {
-    html.AnchorElement()
-      ..href = '${Uri.dataFromBytes(bytes, mimeType: 'image/$extension')}'
-      ..download = '$fileName-${DateTime.now().toIso8601String()}.$extension'
-      ..style.display = 'none'
-      ..click();
-  } else {
-    if (Platform.isIOS || Platform.isAndroid) {
-      bool status = await Permission.storage.isGranted;
-
-      if (!status) await Permission.storage.request();
-
-      await FileSaver.instance.saveFile(
-        '$fileName-${DateTime.now().toIso8601String()}.$extension',
-        bytes,
-        extension,
-        mimeType: MimeType.PNG,
-      );
-    }
-  }
+String uint8ListToBase64(Uint8List data) {
+  return base64Encode(data);
 }

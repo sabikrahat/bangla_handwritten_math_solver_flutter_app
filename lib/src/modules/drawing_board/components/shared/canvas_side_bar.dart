@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:bangla_handwritten_math_solver_flutter_app/src/configs/responsive_config.dart';
-import 'package:bangla_handwritten_math_solver_flutter_app/src/modules/drawing_board/providers/canvas_pd.dart';
-import 'package:bangla_handwritten_math_solver_flutter_app/src/shared/divider/k_divider.dart';
-import 'package:bangla_handwritten_math_solver_flutter_app/src/shared/footer_widget/footer_widget.dart';
+import '../../../../configs/responsive_config.dart';
+import '../../providers/canvas_pd.dart';
+import '../../../../shared/divider/k_divider.dart';
+import '../../../../shared/footer_widget/footer_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter_riverpod/flutter_riverpod.dart';

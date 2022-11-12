@@ -1,4 +1,4 @@
-import 'package:bangla_handwritten_math_solver_flutter_app/src/helpers/constants/constants.dart';
+import '../../../helpers/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../enums/canvas_type.dart';

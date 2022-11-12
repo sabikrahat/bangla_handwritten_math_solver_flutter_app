@@ -3,10 +3,10 @@ import 'package:beamer/beamer.dart'
 import 'package:flutter/material.dart'
     show BuildContext, Key, MaterialApp, Widget;
 import 'package:flutter_easyloading/flutter_easyloading.dart' show EasyLoading;
-import 'package:flutter_riverpod/flutter_riverpod.dart'
-    show ConsumerWidget, WidgetRef;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
+import 'package:flutter_riverpod/flutter_riverpod.dart'
+    show ConsumerWidget, WidgetRef;
 
 import 'beamer_routes.dart' show routerDelegate;
 import 'helpers/constants/constants.dart' show appName;
