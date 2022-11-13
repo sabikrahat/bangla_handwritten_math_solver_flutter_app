@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 
-import '../../../helpers/constants/constants.dart';
-import '../models/solve_result.dart';
-import '../../../utils/logger/logger_helper.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../helpers/constants/constants.dart';
+import '../../../utils/logger/logger_helper.dart';
+import '../models/solve_result.dart';
 
 Future<bool> checkConnection() async {
   try {
@@ -40,6 +40,7 @@ Future<String> getEquationSolveApi(String imgEqu, String imgAns) async {
     SolveResult solveResult = solveResultFromJson(body);
 
     if (solveResult.success) {
+      EasyLoading.dismiss();
       return solveResult.result ?? '';
     } else {
       EasyLoading.showError(solveResult.message);
@@ -53,4 +54,3 @@ Future<String> getEquationSolveApi(String imgEqu, String imgAns) async {
     return e.toString();
   }
 }
-

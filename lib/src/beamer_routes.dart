@@ -1,4 +1,3 @@
-import 'modules/drawing_board/drawing_board.dart';
 import 'package:beamer/beamer.dart'
     show
         BeamGuard,
@@ -11,6 +10,7 @@ import 'package:flutter/widgets.dart' show ValueKey;
 import 'app_routes.dart' show AppRoutes;
 import 'helpers/constants/constants.dart' show appTitle, isMaintenanceBreak;
 import 'modules/about_us/about_us.dart' show AboutUsPage;
+import 'modules/drawing_board/drawing_board.dart';
 import 'modules/home/home.dart' show Home;
 import 'modules/settings/settings_page.dart' show SettingsPage;
 import 'shared/page_not_found/page_not_found.dart' show KPageNotFound;

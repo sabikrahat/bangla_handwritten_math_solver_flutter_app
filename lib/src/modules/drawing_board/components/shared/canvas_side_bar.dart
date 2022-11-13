@@ -1,18 +1,18 @@
 import 'dart:async';
 
-import '../../../../configs/responsive_config.dart';
-import '../../providers/canvas_pd.dart';
-import '../../../../shared/divider/k_divider.dart';
-import '../../../../shared/footer_widget/footer_widget.dart';
-import 'package:flutter/foundation.dart';
+import '../../../../localization/loalization.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:universal_html/html.dart' as html;
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../configs/responsive_config.dart';
 import '../../../../helpers/constants/constants.dart';
+import '../../../../models/config/config.dart';
+import '../../../../shared/divider/k_divider.dart';
+import '../../../../shared/footer_widget/footer_widget.dart';
 import '../../enums/drawing_enums.dart';
+import '../../providers/canvas_pd.dart';
 import 'color_changer.dart';
 import 'icon_box.dart';
 
@@ -21,6 +21,7 @@ class CanvasSideBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final locales = ref.watch(localeConfigProvider);
     final size = MediaQuery.of(context).size;
     return Container(
       width: 300,
@@ -38,9 +39,9 @@ class CanvasSideBar extends ConsumerWidget {
                 color: kPrimaryColor,
               ),
               const SizedBox(width: 10),
-              const Text(
-                'Drawing Tools',
-                style: TextStyle(
+              Text(
+                t!.drawingTools,
+                style: const TextStyle(
                   color: kTextColor,
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -57,9 +58,9 @@ class CanvasSideBar extends ConsumerWidget {
           const SizedBox(height: 10.0),
           const KDivider(),
           const SizedBox(height: 10.0),
-          const Text(
-            'Tools',
-            style: TextStyle(fontWeight: FontWeight.bold),
+          Text(
+            t!.tools,
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10.0),
           Wrap(
@@ -73,7 +74,7 @@ class CanvasSideBar extends ConsumerWidget {
                 onTap: () => ref
                     .read(drawingModeProvider.notifier)
                     .update((_) => DrawingMode.pencil),
-                tooltip: 'Pencil',
+                tooltip: t!.pencil,
               ),
               IconBox(
                 iconData: FontAwesomeIcons.eraser,
@@ -81,68 +82,76 @@ class CanvasSideBar extends ConsumerWidget {
                 onTap: () => ref
                     .read(drawingModeProvider.notifier)
                     .update((_) => DrawingMode.eraser),
-                tooltip: 'Eraser',
+                tooltip: t!.eraser,
               ),
             ],
           ),
           const SizedBox(height: 10.0),
           const Divider(),
           const SizedBox(height: 10.0),
-          const Text(
-            'Colors',
-            style: TextStyle(fontWeight: FontWeight.bold),
+          Text(
+            t!.colors,
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           const Divider(),
           const ColorChanger(),
           const SizedBox(height: 10),
           const Divider(),
           const SizedBox(height: 10),
-          const Text(
-            'Size',
-            style: TextStyle(fontWeight: FontWeight.bold),
+          Text(
+            t!.size,
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-          Row(
-            children: [
-              const Text(
-                'Stroke Size:',
-                style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w600),
-              ),
-              Slider(
-                activeColor: kPrimaryColor,
-                inactiveColor: kPrimaryColor.withOpacity(0.5),
-                value: ref.watch(strokeSizeProvider),
-                min: 0,
-                max: 50,
-                onChanged: (val) => ref
-                    .read(strokeSizeProvider.notifier)
-                    .update((_) => val.roundToDouble()),
-              ),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                Text(
+                  t!.strokeSize,
+                  style: const TextStyle(
+                      fontSize: 13.0, fontWeight: FontWeight.w600),
+                ),
+                Slider(
+                  activeColor: kPrimaryColor,
+                  inactiveColor: kPrimaryColor.withOpacity(0.5),
+                  value: ref.watch(strokeSizeProvider),
+                  min: 0,
+                  max: 50,
+                  onChanged: (val) => ref
+                      .read(strokeSizeProvider.notifier)
+                      .update((_) => val.roundToDouble()),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              const Text(
-                'Eraser Size:',
-                style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w600),
-              ),
-              Slider(
-                activeColor: kPrimaryColor,
-                inactiveColor: kPrimaryColor.withOpacity(0.5),
-                value: ref.watch(eraserSizeProvider),
-                min: 0,
-                max: 80,
-                onChanged: (val) => ref
-                    .read(eraserSizeProvider.notifier)
-                    .update((_) => val.roundToDouble()),
-              ),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                Text(
+                  t!.eraserSize,
+                  style: const TextStyle(
+                      fontSize: 13.0, fontWeight: FontWeight.w600),
+                ),
+                Slider(
+                  activeColor: kPrimaryColor,
+                  inactiveColor: kPrimaryColor.withOpacity(0.5),
+                  value: ref.watch(eraserSizeProvider),
+                  min: 0,
+                  max: 80,
+                  onChanged: (val) => ref
+                      .read(eraserSizeProvider.notifier)
+                      .update((_) => val.roundToDouble()),
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 10),
           const Divider(),
           const SizedBox(height: 10),
-          const Text(
-            'Actions',
-            style: TextStyle(fontWeight: FontWeight.bold),
+          Text(
+            t!.actions,
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           Wrap(
@@ -180,20 +189,57 @@ class CanvasSideBar extends ConsumerWidget {
                   ),
                 ),
                 onPressed: canClearCanvas(ref) ? () => clearCanvas(ref) : null,
-                child: const Text(
-                  'Clear',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                child: Text(
+                  t!.clear,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+              TextButton(
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all(
+                    canClearCanvas(ref) || ref.watch(scorePd) != 0
+                        ? kSecondaryColor
+                        : kFadeTextColor,
+                  ),
+                ),
+                onPressed: canClearCanvas(ref) || ref.watch(scorePd) != 0
+                    ? () => resetCanvas(ref)
+                    : null,
+                child: Text(
+                  t!.reset,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
               TextButton(
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all(kSecondaryColor),
                 ),
-                child: const Text(
-                  'Show on Github',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                child: Text(
+                  t!.showOnGithub,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 onPressed: () => _launchUrl(kGithubRepo),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisSize: mainMin,
+            children: [
+              Text(locales == Locales.english
+                  ? 'Language Change to Bangla'
+                  : 'ভাষা পরিবর্তন করুন'),
+              const SizedBox(width: 20),
+              Switch(
+                value: locales == Locales.bengali,
+                onChanged: (_) async {
+                  await changeLocale(
+                    ref,
+                    localeType == Locales.english
+                        ? Locales.bengali
+                        : Locales.english,
+                  );
+                },
               ),
             ],
           ),
@@ -205,15 +251,8 @@ class CanvasSideBar extends ConsumerWidget {
   }
 
   Future<void> _launchUrl(String url) async {
-    if (kIsWeb) {
-      html.window.open(
-        url,
-        url,
-      );
-    } else {
-      if (!await launchUrl(Uri.parse(url))) {
-        throw 'Could not launch $url';
-      }
+    if (!await launchUrl(Uri.parse(url))) {
+      throw 'Could not launch $url';
     }
   }
 }

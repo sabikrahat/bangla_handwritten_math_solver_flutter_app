@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../../helpers/constants/constants.dart';
 import '../../providers/canvas_pd.dart';
@@ -59,37 +57,37 @@ class ColorChanger extends ConsumerWidget {
               ),
             ),
             const SizedBox(width: 10),
-            GestureDetector(
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: const Text('Pick a color!'),
-                      content: SingleChildScrollView(
-                        child: ColorPicker(
-                          pickerColor: ref.watch(selectedColorProvider),
-                          onColorChanged: (value) => ref
-                              .read(selectedColorProvider.notifier)
-                              .update((_) => value),
-                        ),
-                      ),
-                      actions: <Widget>[
-                        TextButton(
-                          child: const Text('Done'),
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-              child: SvgPicture.asset(
-                'assets/svgs/color_wheel.svg',
-                height: 30,
-                width: 30,
-              ),
-            ),
+            // GestureDetector(
+            //   onTap: () {
+            //     showDialog(
+            //       context: context,
+            //       builder: (BuildContext context) {
+            //         return AlertDialog(
+            //           title: const Text('Pick a color!'),
+            //           content: SingleChildScrollView(
+            //             child: ColorPicker(
+            //               pickerColor: ref.watch(selectedColorProvider),
+            //               onColorChanged: (value) => ref
+            //                   .read(selectedColorProvider.notifier)
+            //                   .update((_) => value),
+            //             ),
+            //           ),
+            //           actions: <Widget>[
+            //             TextButton(
+            //               child: const Text('Done'),
+            //               onPressed: () => Navigator.pop(context),
+            //             ),
+            //           ],
+            //         );
+            //       },
+            //     );
+            //   },
+            //   child: SvgPicture.asset(
+            //     'assets/svgs/color_wheel.svg',
+            //     height: 30,
+            //     width: 30,
+            //   ),
+            // ),
           ],
         ),
       ],

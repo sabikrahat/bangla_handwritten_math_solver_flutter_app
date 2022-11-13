@@ -20,7 +20,7 @@ class MobileWidget extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: defaultBorderRadius,
-              border: Border.all(color: kPrimaryColor, width: 1.5),
+              border: Border.all(color: kPrimaryColor, width: 2.0),
             ),
             child: DrawingCanvas(
               height: (size.height * 3) / 5,
@@ -35,7 +35,7 @@ class MobileWidget extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: defaultBorderRadius,
-              border: Border.all(color: Colors.green, width: 1.5),
+              border: Border.all(color: Colors.green, width: 2.0),
             ),
             child: DrawingCanvas(
               height: (size.height * 2) / 5,

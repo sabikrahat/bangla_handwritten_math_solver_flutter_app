@@ -12,10 +12,8 @@ environment:
 dependencies:
   beamer: ^1.5.3
   cached_network_image: ^3.2.2
-  file_picker: ^5.2.2
   flutter:
     sdk: flutter
-  flutter_colorpicker: ^1.0.3
   flutter_easyloading: ^3.0.5
   flutter_localizations:
     sdk: flutter
@@ -26,11 +24,8 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   http: ^0.13.5
-  image_cropper: ^3.0.1
-  image_picker: ^0.8.6
   intl: ^0.17.0
   logger: ^1.1.0
-  universal_html: ^2.0.8
   url_launcher: ^6.1.6
 
 dev_dependencies:
@@ -67,3 +62,4 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/svgs/
+    - assets/gifs/

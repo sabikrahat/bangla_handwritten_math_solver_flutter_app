@@ -72,7 +72,12 @@ const Gradient defaultGradient = LinearGradient(
 final allColors = [
   Colors.black,
   Colors.white,
-  ...Colors.primaries,
+  Colors.red,
+  Colors.blue,
+  Colors.green,
+  Colors.cyan,
+  Colors.purple,
+  Colors.pink
 ];
 
 final defaultBorderRadius = BorderRadius.circular(6.0);

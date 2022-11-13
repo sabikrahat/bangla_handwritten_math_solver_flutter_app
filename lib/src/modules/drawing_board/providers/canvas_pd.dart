@@ -12,6 +12,7 @@ final strokeSizeProvider = StateProvider<double>((_) => 10.0);
 final eraserSizeProvider = StateProvider<double>((_) => 30.0);
 final drawingModeProvider =
     StateProvider<DrawingMode>((_) => DrawingMode.pencil);
+final scorePd = StateProvider<int>((_) => 0);
 
 final currentSketchProvider =
     StateProvider.family<Sketch?, String>((_, __) => null);
@@ -35,6 +36,11 @@ void clearCanvas(WidgetRef ref) {
   ref.read(currentSketchProvider(ansCanvasKey).notifier).update((_) => null);
 }
 
+void resetCanvas(WidgetRef ref) {
+  clearCanvas(ref);
+  ref.read(scorePd.notifier).update((_) => 0);
+}
+
 bool canUndo(WidgetRef ref) {
   final equSketches = ref.watch(allSketchesProvider(equCanvasKey));
   final ansSketches = ref.watch(allSketchesProvider(ansCanvasKey));
@@ -47,20 +53,28 @@ void undo(WidgetRef ref) {
   if (ref.watch(lastCanvasChangedProvider) == CanvasType.equation) {
     if (equSketches.isNotEmpty) {
       final lastSketch = equSketches.removeLast();
-      ref.read(allSketchesProvider(equCanvasKey).notifier).update((_) => [...equSketches]);
+      ref
+          .read(allSketchesProvider(equCanvasKey).notifier)
+          .update((_) => [...equSketches]);
       ref
           .read(redoSketchesProvider.notifier)
           .update((state) => [lastSketch, ...state]);
-      ref.read(currentSketchProvider(equCanvasKey).notifier).update((_) => null);
+      ref
+          .read(currentSketchProvider(equCanvasKey).notifier)
+          .update((_) => null);
     }
   } else {
     if (ansSketches.isNotEmpty) {
       final lastSketch = ansSketches.removeLast();
-      ref.read(allSketchesProvider(ansCanvasKey).notifier).update((_) => [...ansSketches]);
+      ref
+          .read(allSketchesProvider(ansCanvasKey).notifier)
+          .update((_) => [...ansSketches]);
       ref
           .read(redoSketchesProvider.notifier)
           .update((state) => [lastSketch, ...state]);
-      ref.read(currentSketchProvider(ansCanvasKey).notifier).update((_) => null);
+      ref
+          .read(currentSketchProvider(ansCanvasKey).notifier)
+          .update((_) => null);
     }
   }
 }

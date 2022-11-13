@@ -1,12 +1,12 @@
-import 'sketch_painting.dart';
-import '../../enums/canvas_type.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../helpers/constants/constants.dart';
+import '../../enums/canvas_type.dart';
 import '../../enums/drawing_enums.dart';
 import '../../models/sketch.dart';
 import '../../providers/canvas_pd.dart';
+import 'sketch_painting.dart';
 
 class DrawingCanvas extends ConsumerWidget {
   const DrawingCanvas({

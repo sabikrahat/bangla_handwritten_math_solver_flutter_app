@@ -13,12 +13,25 @@ class Sketch {
     required this.size,
   });
 
-  factory Sketch.fromDrawingMode(
-      Sketch sketch, DrawingMode drawingMode) {
+  factory Sketch.fromDrawingMode(Sketch sketch, DrawingMode drawingMode) {
     return Sketch(
       points: sketch.points,
       color: sketch.color,
       size: sketch.size,
+    );
+  }
+
+  // copywith
+  Sketch copyWith({
+    List<Offset>? points,
+    Color? color,
+    double? size,
+    DrawingMode? drawingMode,
+  }) {
+    return Sketch(
+      points: points ?? this.points,
+      color: color ?? this.color,
+      size: size ?? this.size,
     );
   }
 }
