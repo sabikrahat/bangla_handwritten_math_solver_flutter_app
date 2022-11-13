@@ -1,0 +1,11 @@
+flutter clean
+flutter pub get
+flutter build web --web-renderer html --release
+cd build/web
+git init
+git remote add origin https://github.com/sabikrahat/bangla_handwritten_math_solver_flutter_app
+git checkout -b gh-pages
+git add --all
+git commit -m "update"
+git push origin gh-pages -f
+cd ../../

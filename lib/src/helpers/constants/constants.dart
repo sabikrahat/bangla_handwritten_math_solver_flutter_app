@@ -45,9 +45,6 @@ String get getCurrentFormattedTime => timeFormat.format(DateTime.now());
 
 String get todayNow => DateFormat('MMMM d, y  hh:mm a').format(DateTime.now());
 
-String numberFormateConvert(double? currency) =>
-    currency != null ? numberFormat.format(currency) : '';
-
 const String appName = 'bangla_handwritten_math_solver';
 
 const String appTitle = 'Bangla Handwritten Math Solver';
@@ -84,8 +81,7 @@ final defaultBorderRadius = BorderRadius.circular(6.0);
 const equCanvasKey = 'equCanvas';
 const ansCanvasKey = 'ansCanvas';
 
-const String kGithubRepo =
-    'https://github.com/sabikrahat/bangla_handwritten_math_solver_flutter_app';
+const String kGithubRepo = 'https://github.com/sabikrahat/bangla_handwritten_math_solver_flutter_app';
 
 MainAxisAlignment mainStart = MainAxisAlignment.start;
 MainAxisAlignment mainCenter = MainAxisAlignment.center;
