@@ -10,7 +10,6 @@ import '../../../../configs/responsive_config.dart';
 import '../../../../helpers/constants/constants.dart';
 import '../../../../models/config/config.dart';
 import '../../../../shared/divider/k_divider.dart';
-import '../../../../shared/footer_widget/footer_widget.dart';
 import '../../enums/drawing_enums.dart';
 import '../../providers/canvas_pd.dart';
 import 'color_changer.dart';
@@ -244,7 +243,7 @@ class CanvasSideBar extends ConsumerWidget {
             ],
           ),
           const SizedBox(height: 50),
-          const KFooterWidget(),
+          // const KFooterWidget(),
         ],
       ),
     );
