@@ -81,7 +81,8 @@ final defaultBorderRadius = BorderRadius.circular(6.0);
 const equCanvasKey = 'equCanvas';
 const ansCanvasKey = 'ansCanvas';
 
-const String kGithubRepo = 'https://github.com/sabikrahat/bangla_handwritten_math_solver_flutter_app';
+const String kGithubRepo =
+    'https://github.com/sabikrahat/bangla_handwritten_math_solver_flutter_app';
 
 MainAxisAlignment mainStart = MainAxisAlignment.start;
 MainAxisAlignment mainCenter = MainAxisAlignment.center;
@@ -98,6 +99,6 @@ CrossAxisAlignment crossStretch = CrossAxisAlignment.stretch;
 MainAxisSize mainMax = MainAxisSize.max;
 MainAxisSize mainMin = MainAxisSize.min;
 
-const String baseLink = 'http://127.0.0.1:8000';
+const String baseLink = 'http://103.113.227.244:1000';
 
 const String playStoreUrl = 'https://play.google.com/store/apps/details?id= ';
