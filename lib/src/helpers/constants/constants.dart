@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart'
     show
         Alignment,
@@ -99,6 +100,6 @@ CrossAxisAlignment crossStretch = CrossAxisAlignment.stretch;
 MainAxisSize mainMax = MainAxisSize.max;
 MainAxisSize mainMin = MainAxisSize.min;
 
-const String baseLink = 'http://103.113.227.244:1000';
+const baseLink = kReleaseMode ? 'http://103.113.227.244:1000' : 'http://localhost:1000';
 
 const String playStoreUrl = 'https://play.google.com/store/apps/details?id= ';

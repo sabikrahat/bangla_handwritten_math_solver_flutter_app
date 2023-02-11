@@ -44,5 +44,6 @@
   "wrong": "Sorry!\n\nYou have drawn the wrong mathematical term. Better Luck next time.\nCorrect answer is ",
   "next": "Next",
   "score": "Score: ",
-  "reset": "Reset"
+  "reset": "Reset",
+  "contributeData": "Contribute Data"
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart'
 import 'package:flutter/services.dart' show Brightness, SystemUiOverlayStyle;
 import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
 
-import '../../constants/constants.dart' show black, kPrimaryColor, white;
+import '../../constants/constants.dart' show black, kPrimaryColor;
 
 SystemUiOverlayStyle darkUiConfig = const SystemUiOverlayStyle(
   systemNavigationBarIconBrightness: Brightness.light,
@@ -18,7 +18,6 @@ ThemeData darkTheme = ThemeData(
   visualDensity: VisualDensity.adaptivePlatformDensity,
   fontFamily: GoogleFonts.nunito().fontFamily,
   colorScheme: const ColorScheme.dark(),
-  toggleableActiveColor: white,
   brightness: Brightness.dark,
   primaryColor: black,
   iconTheme: const IconThemeData(color: Colors.white),

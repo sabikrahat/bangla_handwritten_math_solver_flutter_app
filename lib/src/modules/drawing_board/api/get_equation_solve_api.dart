@@ -28,7 +28,11 @@ Future<bool> checkConnection() async {
 
 Future<String> getEquationSolveApi(String imgEqu, String imgAns) async {
   try {
-    var headers = {'Content-Type': 'application/json'};
+    var headers = {
+      "Access-Control-Allow-Origin": "*",
+      'Content-Type': 'application/json',
+      'Accept': '*/*'
+    };
     var request = http.Request('POST', Uri.parse('$baseLink/equation_solve/'));
     request.body = json.encode({"img_equ": imgEqu, "img_ans": imgAns});
     request.headers.addAll(headers);

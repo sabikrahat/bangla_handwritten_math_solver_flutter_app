@@ -10,6 +10,7 @@ import 'package:flutter/widgets.dart' show ValueKey;
 import 'app_routes.dart' show AppRoutes;
 import 'helpers/constants/constants.dart' show appTitle, isMaintenanceBreak;
 import 'modules/about_us/about_us.dart' show AboutUsPage;
+import 'modules/data_collect/data_collect_view.dart';
 import 'modules/drawing_board/drawing_board.dart';
 import 'modules/home/home.dart' show Home;
 import 'modules/settings/settings_page.dart' show SettingsPage;
@@ -53,6 +54,14 @@ final routerDelegate = BeamerDelegate(
           title: 'Drawing Board',
           type: BeamPageType.slideRightTransition,
           child: DrawingBoard(),
+        );
+      },
+      AppRoutes.dataCollectRoute: (_, __, ___) {
+        return const BeamPage(
+          key: ValueKey(AppRoutes.dataCollectRoute),
+          title: 'Data Collect',
+          type: BeamPageType.slideRightTransition,
+          child: DataCollectView(),
         );
       },
     },

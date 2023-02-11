@@ -26,7 +26,6 @@ ThemeData lightTheme = ThemeData(
   visualDensity: VisualDensity.adaptivePlatformDensity,
   fontFamily: GoogleFonts.nunito().fontFamily,
   colorScheme: const ColorScheme.light(),
-  toggleableActiveColor: kPrimaryColor,
   brightness: Brightness.light,
   iconTheme: const IconThemeData(color: kPrimaryColor),
   appBarTheme: const AppBarTheme(

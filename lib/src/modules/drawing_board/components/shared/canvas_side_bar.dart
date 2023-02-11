@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:beamer/beamer.dart';
+
+import '../../../../app_routes.dart';
 import '../../../../localization/loalization.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,7 +12,9 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../../configs/responsive_config.dart';
 import '../../../../helpers/constants/constants.dart';
 import '../../../../models/config/config.dart';
+import '../../../../shared/beamer_history/beamer_history.dart';
 import '../../../../shared/divider/k_divider.dart';
+import '../../../../shared/footer_widget/footer_widget.dart';
 import '../../enums/drawing_enums.dart';
 import '../../providers/canvas_pd.dart';
 import 'color_changer.dart';
@@ -242,8 +247,23 @@ class CanvasSideBar extends ConsumerWidget {
               ),
             ],
           ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
+            ),
+            onPressed: () {
+              Beamer.of(context).beamToNamed(AppRoutes.dataCollectRoute);
+              printUrlHistory(context);
+            },
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              child: Text(t!.contributeData),
+            ),
+          ),
           const SizedBox(height: 50),
-          // const KFooterWidget(),
+          const KFooterWidget(),
         ],
       ),
     );

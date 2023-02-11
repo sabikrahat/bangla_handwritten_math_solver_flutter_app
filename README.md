@@ -12,3 +12,9 @@ A new Flutter project.
     - real ip: ```103.113.227.244```
     - port: ```1000```
     - command: py manage.py runserver ```0.0.0.0:1000```
+
+# Browser security disable
+    - Go to flutter\bin\cache and remove a file named: flutter_tools.stamp
+    - Go to flutter\packages\flutter_tools\lib\src\web and open the file chrome.dart.
+    - Find '--disable-extensions' remove and add 4.step
+    - Add '--disable-web-security'
