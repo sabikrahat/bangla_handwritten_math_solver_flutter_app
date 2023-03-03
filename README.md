@@ -15,6 +15,8 @@ A new Flutter project.
 
 # Browser security disable
     - Go to flutter\bin\cache and remove a file named: flutter_tools.stamp
+    - C:\src\flutter\bin\cache\flutter_tools.stamp
     - Go to flutter\packages\flutter_tools\lib\src\web and open the file chrome.dart.
-    - Find '--disable-extensions' remove and add 4.step
+    - C:\src\flutter\packages\flutter_tools\lib\src\web\chrome.dart
+    - Find '--disable-extensions' remove and add next step
     - Add '--disable-web-security'
