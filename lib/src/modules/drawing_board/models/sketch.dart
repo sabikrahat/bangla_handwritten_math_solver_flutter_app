@@ -13,7 +13,7 @@ class Sketch {
     required this.size,
   });
 
-  factory Sketch.fromDrawingMode(Sketch sketch, DrawingMode drawingMode) {
+  factory Sketch.fromDrawingMode(Sketch sketch) {
     return Sketch(
       points: sketch.points,
       color: sketch.color,

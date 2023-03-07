@@ -5,15 +5,9 @@ import '../../../../helpers/constants/constants.dart';
 import '../../../../localization/loalization.dart';
 import '../../providers/canvas_pd.dart';
 
-Future<void> showCustomizedAlertDialog(
-    BuildContext context, String equ, String ans, WidgetRef ref) {
+Future<void> showCustomizedAlertDialog(BuildContext context, String qstn,
+    String answer, String ansPred, WidgetRef ref) async {
   final size = MediaQuery.of(context).size;
-  final qstn = equ.split("=").first;
-  final answer = equ.split("=").last;
-  final ansPred = ans.split("=").first;
-  debugPrint("qstn: $qstn");
-  debugPrint("answer: $answer");
-  debugPrint("ansPred: $ansPred");
   return showDialog(
     context: context,
     builder: (context) => AlertDialog(

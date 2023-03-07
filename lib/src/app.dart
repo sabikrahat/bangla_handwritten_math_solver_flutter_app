@@ -1,7 +1,7 @@
 import 'package:beamer/beamer.dart'
     show BeamerBackButtonDispatcher, BeamerParser;
 import 'package:flutter/material.dart'
-    show BuildContext, Key, MaterialApp, Widget;
+    show BuildContext, MaterialApp, Widget;
 import 'package:flutter_easyloading/flutter_easyloading.dart' show EasyLoading;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
@@ -25,9 +25,7 @@ import 'localization/loalization.dart'
 import 'models/config/config.dart' show Locales, Themes;
 
 class App extends ConsumerWidget {
-  const App({
-    Key? key,
-  }) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

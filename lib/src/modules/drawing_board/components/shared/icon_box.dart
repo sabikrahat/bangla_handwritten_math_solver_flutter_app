@@ -4,12 +4,12 @@ import '../../../../helpers/constants/constants.dart';
 
 class IconBox extends StatelessWidget {
   const IconBox({
-    Key? key,
+    super.key,
     required this.iconData,
     required this.tooltip,
     required this.selected,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   final IconData iconData;
   final bool selected;

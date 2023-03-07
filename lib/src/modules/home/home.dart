@@ -1,3 +1,4 @@
+import '../../shared/sounds/sounds_file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
@@ -8,22 +9,31 @@ import '../maintenance_break/maintenance_break.dart';
 import 'components/body.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
     t = AppLocalizations.of(context);
     return isMaintenanceBreak
         ? const MaintenanceBreak()
-        : const Scaffold(
-            body: SafeArea(child: Body()),
-            // floatingActionButton: FloatingActionButton(
-            //   onPressed: () {
-            //     Beamer.of(context).beamToNamed(AppRoutes.settingsRoute);
-            //     printUrlHistory(context);
-            //   },
-            //   child: const Icon(Icons.settings),
-            // ),
+        : Scaffold(
+            body: const SafeArea(child: Body()),
+            floatingActionButton: Column(
+              mainAxisAlignment: mainEnd,
+              children: [
+                FloatingActionButton.small(
+                  heroTag: null,
+                  onPressed: () async => await playCongratulations(),
+                  child: const Icon(Icons.add),
+                ),
+                const SizedBox(height: 10),
+                FloatingActionButton.small(
+                  heroTag: null,
+                  onPressed: () async => await playWrong(),
+                  child: const Icon(Icons.error_outline),
+                ),
+              ],
+            ),
           );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import '../../../shared/device_info/device.info.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 
@@ -33,8 +34,10 @@ Future<String> getEquationSolveApi(String imgEqu, String imgAns) async {
       'Content-Type': 'application/json',
       'Accept': '*/*'
     };
+    final info = await getDeviceInfo();
     var request = http.Request('POST', Uri.parse('$baseLink/equation_solve/'));
-    request.body = json.encode({"img_equ": imgEqu, "img_ans": imgAns});
+    request.body =
+        json.encode({"img_equ": imgEqu, "img_ans": imgAns, "info": info});
     request.headers.addAll(headers);
 
     http.StreamedResponse response = await request.send();

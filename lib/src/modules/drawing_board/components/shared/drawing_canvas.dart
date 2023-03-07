@@ -10,11 +10,11 @@ import 'sketch_painting.dart';
 
 class DrawingCanvas extends ConsumerWidget {
   const DrawingCanvas({
-    Key? key,
+    super.key,
     required this.height,
     required this.width,
     required this.canvasType,
-  }) : super(key: key);
+  });
 
   final double height;
   final double width;
@@ -35,8 +35,7 @@ class DrawingCanvas extends ConsumerWidget {
               width: width,
               color: kCanvasColor,
               child: CustomPaint(
-                  painter: SketchPainting(
-                      ref.watch(allSketchesProvider(canvasType.keyValue)))),
+                  painter: SketchPainting(ref.watch(allSketchesProvider(canvasType.keyValue)))),
             ),
           ),
         ),
@@ -75,7 +74,7 @@ class DrawingCanvas extends ConsumerWidget {
                   ? kCanvasColor
                   : ref.watch(selectedColorProvider),
             ),
-            ref.watch(drawingModeProvider),
+            // ref.watch(drawingModeProvider),
           ),
         );
   }
@@ -98,7 +97,7 @@ class DrawingCanvas extends ConsumerWidget {
                   ? kCanvasColor
                   : ref.watch(selectedColorProvider),
             ),
-            ref.watch(drawingModeProvider),
+            // ref.watch(drawingModeProvider),
           ),
         );
   }

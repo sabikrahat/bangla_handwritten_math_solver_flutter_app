@@ -7,9 +7,7 @@ import 'shared/canvas_side_bar.dart';
 import 'shared/drawing_canvas.dart';
 
 class DesktopWidget extends StatelessWidget {
-  const DesktopWidget({
-    Key? key,
-  }) : super(key: key);
+  const DesktopWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

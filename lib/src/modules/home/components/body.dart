@@ -9,9 +9,7 @@ import '../../../models/config/config.dart';
 import '../../../shared/beamer_history/beamer_history.dart';
 
 class Body extends ConsumerWidget {
-  const Body({
-    Key? key,
-  }) : super(key: key);
+  const Body({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

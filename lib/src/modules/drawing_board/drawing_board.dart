@@ -1,3 +1,4 @@
+import '../../shared/sounds/sounds_file.dart';
 import 'components/shared/show_customized_alert_dialog.dart';
 import 'providers/canvas_pd.dart';
 
@@ -80,9 +81,22 @@ class DrawingBoard extends ConsumerWidget {
         onPressed: () async {
           await check(ref).then((res) async {
             if (res != null) {
+              debugPrint("Result From Api : $res");
               String equAns = (res.split('_backend_server_')[0]);
               String ansAns = res.split('_backend_server_')[1];
-              await showCustomizedAlertDialog(context, equAns, ansAns, ref);
+              final qstn = equAns.split("=").first;
+              final answer = equAns.split("=").last;
+              final ansPred = ansAns.split("=").first;
+              debugPrint("qstn: $qstn");
+              debugPrint("answer: $answer");
+              debugPrint("ansPred: $ansPred");
+              if (answer == ansPred) {
+                await playCongratulations();
+              } else {
+                await playWrong();
+              }
+              // ignore: use_build_context_synchronously
+              await showCustomizedAlertDialog(context, qstn, answer, ansPred, ref);
             }
           });
         },
