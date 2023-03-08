@@ -34,14 +34,22 @@ Future<String?> check(WidgetRef ref) async {
 }
 
 Future<Uint8List?> getBytes(String keyValue, WidgetRef ref) async {
-  final key = ref.watch(canvasGlobalKeyProvider(keyValue));
-  RenderRepaintBoundary boundary =
-      key.currentContext?.findRenderObject() as RenderRepaintBoundary;
-  ui.Image image = await boundary.toImage();
-  ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
-  Uint8List? pngBytes = byteData?.buffer.asUint8List();
-  return pngBytes;
+  // try {
+    final key = ref.watch(canvasGlobalKeyProvider(keyValue));
+    RenderRepaintBoundary boundary =
+        key.currentContext?.findRenderObject() as RenderRepaintBoundary;
+    ui.Image image = await boundary.toImage();
+    ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+    Uint8List? pngBytes = byteData?.buffer.asUint8List();
+    return pngBytes;
+  // } catch (e) {
+  //   EasyLoading.showError('Error: $e');
+  //   debugPrint('>>> Error: $e');
+  //   return null;
+  // }
 }
+
+
 
 String uint8ListToBase64(Uint8List data) {
   return base64Encode(data);

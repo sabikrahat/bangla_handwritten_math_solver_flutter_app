@@ -57,7 +57,7 @@ Future<String> getEquationSolveApi(String imgEqu, String imgAns) async {
     EasyLoading.showError('No Internet Connection. $e');
     return e.message;
   } catch (e) {
-    EasyLoading.showError(e.toString());
+    EasyLoading.showError('Api Error: $e');
     return e.toString();
   }
 }

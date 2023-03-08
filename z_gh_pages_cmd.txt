@@ -13,3 +13,7 @@ cd ../../
 
 flutter build web --web-renderer html --release --web-browser-flag --disable-web-security
 flutter run -d chrome --web-browser-flag "--disable-web-security"
+
+http://103.113.227.244/:2000/bangla_handwritten_math_solver_flutter_app
+
+flutter run -d web-server --web-renderer html --web-hostname 0.0.0.0 --web-port 2000 --web-browser-flag --disable-web-security
