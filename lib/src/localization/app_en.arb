@@ -45,5 +45,8 @@
   "next": "Next",
   "score": "Score: ",
   "reset": "Reset",
-  "contributeData": "Contribute Data"
+  "contributeData": "Contribute Data",
+  "equationPart": "Equation Part",
+  "answerPart": "Answer Part",
+  "developingMessage": "*** We are in the developing phase. Currently only addition(+), subtraction(-), multiplication(x) and division(/) releated equations are available. ***"
 }

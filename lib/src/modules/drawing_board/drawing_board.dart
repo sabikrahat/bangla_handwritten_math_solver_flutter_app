@@ -30,13 +30,25 @@ class DrawingBoard extends ConsumerWidget {
         backgroundColor: kCanvasColor,
         elevation: 1.0,
         centerTitle: true,
-        title: Text(
-          t!.drawYourMathematicalTermHere,
-          style: const TextStyle(
-            color: kTextColor,
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
+        title: Column(
+          children: [
+            Text(
+              t!.drawYourMathematicalTermHere,
+              style: const TextStyle(
+                color: kTextColor,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(
+              t!.developingMessage,
+              style: const TextStyle(
+                color: Colors.green,
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
         ),
         actions: [
           Column(
@@ -96,7 +108,8 @@ class DrawingBoard extends ConsumerWidget {
                 await playWrong();
               }
               // ignore: use_build_context_synchronously
-              await showCustomizedAlertDialog(context, qstn, answer, ansPred, ref);
+              await showCustomizedAlertDialog(
+                  context, qstn, answer, ansPred, ref);
             }
           });
         },
@@ -104,4 +117,3 @@ class DrawingBoard extends ConsumerWidget {
     );
   }
 }
-
