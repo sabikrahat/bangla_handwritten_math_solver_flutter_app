@@ -35,7 +35,8 @@ class DrawingCanvas extends ConsumerWidget {
               width: width,
               color: kCanvasColor,
               child: CustomPaint(
-                  painter: SketchPainting(ref.watch(allSketchesProvider(canvasType.keyValue)))),
+                  painter: SketchPainting(
+                      ref.watch(allSketchesProvider(canvasType.keyValue)))),
             ),
           ),
         ),

@@ -12,7 +12,7 @@ import '../../models/config/config.dart';
 import '../../shared/beamer_history/beamer_history.dart';
 
 class SettingsPage extends ConsumerWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

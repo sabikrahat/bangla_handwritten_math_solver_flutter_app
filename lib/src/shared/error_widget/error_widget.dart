@@ -5,7 +5,6 @@ import 'package:flutter/material.dart'
         Colors,
         Column,
         FontWeight,
-        Key,
         MediaQuery,
         Scaffold,
         StatelessWidget,
@@ -18,10 +17,7 @@ import 'package:flutter_svg/flutter_svg.dart' show SvgPicture;
 import '../../helpers/constants/constants.dart' show mainCenter, mainMin;
 
 class KErrorWidget extends StatelessWidget {
-  const KErrorWidget({
-    Key? key,
-    required this.error,
-  }) : super(key: key);
+  const KErrorWidget({super.key, required this.error});
 
   final Object error;
 

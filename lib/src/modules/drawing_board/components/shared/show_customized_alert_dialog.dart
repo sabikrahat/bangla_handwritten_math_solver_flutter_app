@@ -5,8 +5,13 @@ import '../../../../helpers/constants/constants.dart';
 import '../../../../localization/loalization.dart';
 import '../../providers/canvas_pd.dart';
 
-Future<void> showCustomizedAlertDialog(BuildContext context, String qstn,
-    String answer, String ansPred, WidgetRef ref) async {
+Future<void> showCustomizedAlertDialog(
+  BuildContext context,
+  String qstn,
+  String answer,
+  String ansPred,
+  WidgetRef ref,
+) async {
   final size = MediaQuery.of(context).size;
   return showDialog(
     context: context,

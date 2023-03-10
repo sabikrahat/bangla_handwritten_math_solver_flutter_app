@@ -3,7 +3,6 @@ import 'package:flutter/material.dart'
         BuildContext,
         EdgeInsets,
         InkWell,
-        Key,
         MaterialTapTargetSize,
         Padding,
         Radio,
@@ -18,14 +17,14 @@ import '../../helpers/constants/constants.dart' show mainCenter, mainMin;
 
 class KRadioButton extends StatelessWidget {
   const KRadioButton({
-    Key? key,
+    super.key,
     required this.value,
     required this.onChanged,
     required this.label,
     required this.groupValue,
     required this.onLabelTap,
     this.style,
-  }) : super(key: key);
+  });
 
   final String label;
   final int value;

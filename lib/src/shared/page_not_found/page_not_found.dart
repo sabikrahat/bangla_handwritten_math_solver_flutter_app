@@ -5,7 +5,6 @@ import 'package:flutter/material.dart'
         Colors,
         Column,
         FontWeight,
-        Key,
         MediaQuery,
         Scaffold,
         SingleChildScrollView,
@@ -20,10 +19,7 @@ import '../../helpers/constants/constants.dart' show mainCenter, mainMin;
 import '../beamer_history/beamer_history.dart' show printUrlHistory;
 
 class KPageNotFound extends StatelessWidget {
-  const KPageNotFound({
-    Key? key,
-    required this.error,
-  }) : super(key: key);
+  const KPageNotFound({super.key, required this.error});
 
   final Object error;
 

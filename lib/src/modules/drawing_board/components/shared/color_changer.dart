@@ -5,9 +5,7 @@ import '../../../../helpers/constants/constants.dart';
 import '../../providers/canvas_pd.dart';
 
 class ColorChanger extends ConsumerWidget {
-  const ColorChanger({
-    Key? key,
-  }) : super(key: key);
+  const ColorChanger({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -4,10 +4,7 @@ import '../../../../helpers/constants/constants.dart';
 import '../../../../localization/loalization.dart';
 
 class CanvasBanner extends StatelessWidget {
-  const CanvasBanner({
-    super.key,
-    this.isAnswer = false,
-  });
+  const CanvasBanner({super.key, this.isAnswer = false});
 
   final bool isAnswer;
 

@@ -21,7 +21,7 @@ import 'color_changer.dart';
 import 'icon_box.dart';
 
 class CanvasSideBar extends ConsumerWidget {
-  const CanvasSideBar({Key? key}) : super(key: key);
+  const CanvasSideBar({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

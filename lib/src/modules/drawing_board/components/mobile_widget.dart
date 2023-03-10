@@ -1,4 +1,3 @@
-import 'package:bangla_handwritten_math_solver_flutter_app/src/localization/loalization.dart';
 import 'package:bangla_handwritten_math_solver_flutter_app/src/modules/drawing_board/components/shared/canvas_banner.dart';
 import 'package:flutter/material.dart';
 
@@ -8,9 +7,7 @@ import '../enums/canvas_type.dart';
 import 'shared/drawing_canvas.dart';
 
 class MobileWidget extends StatelessWidget {
-  const MobileWidget({
-    Key? key,
-  }) : super(key: key);
+  const MobileWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

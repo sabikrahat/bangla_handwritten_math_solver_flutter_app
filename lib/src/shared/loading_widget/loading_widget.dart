@@ -10,7 +10,6 @@ import 'package:flutter/material.dart'
         Column,
         FontWeight,
         Image,
-        Key,
         MediaQuery,
         Scaffold,
         SingleTickerProviderStateMixin,
@@ -29,7 +28,7 @@ import '../../helpers/constants/constants.dart' show mainMin;
 import '../../localization/loalization.dart' show t;
 
 class KLoadingWidget extends StatefulWidget {
-  const KLoadingWidget({Key? key}) : super(key: key);
+  const KLoadingWidget({super.key});
 
   @override
   State<KLoadingWidget> createState() => _KLoadingWidgetState();

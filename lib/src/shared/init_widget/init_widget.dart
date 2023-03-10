@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart'
     show
         BuildContext,
-        Key,
         MaterialApp,
         MediaQuery,
         MediaQueryData,
@@ -9,10 +8,7 @@ import 'package:flutter/material.dart'
         Widget;
 
 class KInitWidget extends StatelessWidget {
-  const KInitWidget({
-    Key? key,
-    required this.child,
-  }) : super(key: key);
+  const KInitWidget({super.key, required this.child});
 
   final Widget child;
 

@@ -7,7 +7,6 @@ import 'package:flutter/material.dart'
         Container,
         ElevatedButton,
         Gradient,
-        Key,
         RoundedRectangleBorder,
         StatelessWidget,
         VoidCallback,
@@ -18,14 +17,14 @@ import '../../helpers/constants/constants.dart'
 
 class GradientButton extends StatelessWidget {
   const GradientButton({
-    Key? key,
+    super.key,
     required this.child,
     required this.onPressed,
     this.gradient = defaultGradient,
     this.borderRadius,
     this.width,
     this.height = 42.0,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final Gradient gradient;

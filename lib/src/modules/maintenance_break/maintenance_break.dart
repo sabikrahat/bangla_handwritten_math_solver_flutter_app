@@ -11,7 +11,7 @@ import '../../localization/loalization.dart';
 import '../../shared/beamer_history/beamer_history.dart';
 
 class MaintenanceBreak extends StatelessWidget {
-  const MaintenanceBreak({Key? key}) : super(key: key);
+  const MaintenanceBreak({super.key});
 
   @override
   Widget build(BuildContext context) {
