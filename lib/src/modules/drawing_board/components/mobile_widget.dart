@@ -1,4 +1,4 @@
-import 'package:bangla_handwritten_math_solver_flutter_app/src/modules/drawing_board/components/shared/canvas_banner.dart';
+import 'shared/canvas_banner.dart';
 import 'package:flutter/material.dart';
 
 import '../../../configs/responsive_config.dart';

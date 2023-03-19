@@ -36,6 +36,19 @@ class Body extends ConsumerWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 20.0, horizontal: 20.0),
+                child: Center(
+                  child: Text(
+                    t!.shortDesc,
+                    textAlign: TextAlign.justify,
+                    style: const TextStyle(fontSize: 15),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(
                     vertical: 10.0, horizontal: 20.0),

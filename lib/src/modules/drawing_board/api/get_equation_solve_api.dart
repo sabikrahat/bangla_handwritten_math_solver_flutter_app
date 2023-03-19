@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import '../../../shared/device_info/device.info.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../helpers/constants/constants.dart';
+import '../../../shared/device_info/device.info.dart';
 import '../../../utils/logger/logger_helper.dart';
 import '../models/solve_result.dart';
 

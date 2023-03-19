@@ -48,5 +48,6 @@
   "contributeData": "Contribute Data",
   "equationPart": "Write your equation's part here",
   "answerPart": "Write your answer's part here",
-  "developingMessage": "*** We are in the developing phase. Currently only addition(+), subtraction(-), multiplication(x) and division(/) releated equations are available. ***"
+  "developingMessage": "*** We are in the developing phase. Currently only addition(+), subtraction(-), multiplication(x) and division(/) releated equations are available. ***",
+  "shortDesc": "Currently, children are becoming increasingly dependent on digital devices such as smartphones and tablets. They are wasting a lot of time behind various types of games, which is causing harm to their studies. In reality, this small initiative of ours is aimed at solving all these problems. So that children are not adversely affected by the misuse of technology, but rather they can use digital devices in the field of education. The biggest thing is that through our app, children will be able to learn math in their mother tongue, Bangla, which will be even more helpful for them. Because almost every child in this country starts their education in Bangla at the primary level. As a result, by using our app, children will be able to enjoy learning basic math (such as addition, subtraction, multiplication, division) and the scoring format in the game-like format will encourage them to practice more math."
 }
