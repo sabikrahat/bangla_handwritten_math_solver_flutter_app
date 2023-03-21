@@ -99,7 +99,8 @@ CrossAxisAlignment crossStretch = CrossAxisAlignment.stretch;
 MainAxisSize mainMax = MainAxisSize.max;
 MainAxisSize mainMin = MainAxisSize.min;
 
-const baseLink = 'http://localhost:8000';
+// const baseLink = 'http://localhost:8000';
+const baseLink = 'http://192.168.0.186:1000';
 // const baseLink = 'http://103.113.227.244:1000';
 
 const String playStoreUrl = 'https://play.google.com/store/apps/details?id= ';
